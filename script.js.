@@ -1,0 +1,66 @@
+document.addEventListener("DOMContentLoaded",()=>{
+
+const cards=document.querySelectorAll(".card");
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+cards.forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(50px)";
+
+card.style.transition=".7s";
+
+observer.observe(card);
+
+});
+
+const links=document.querySelectorAll("nav a");
+
+links.forEach(link=>{
+
+link.addEventListener("click",function(e){
+
+e.preventDefault();
+
+const id=this.getAttribute("href");
+
+document.querySelector(id).scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+});
+
+});
+
+const button=document.querySelector(".btn");
+
+button.addEventListener("mouseenter",()=>{
+
+button.style.boxShadow="0 0 30px gold";
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.boxShadow="none";
+
+});
+
+});
