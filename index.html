@@ -3,346 +3,492 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QALYAN Lounge & Cafe</title>
+<title>CORNER LOUNGE — MENU</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+body{
+    background:#080a0d;
+    color:#eee;
+    font-family:Arial,Helvetica,sans-serif;
+}
 
+header{
+    text-align:center;
+    padding:28px 15px 20px;
+    background:linear-gradient(180deg,#111820,#080a0d);
+    border-bottom:1px solid #30362c;
+}
+
+.logo{
+    font-size:42px;
+    font-weight:900;
+    letter-spacing:5px;
+    color:#e7e9df;
+}
+
+.subtitle{
+    color:#b7bd55;
+    letter-spacing:4px;
+    font-size:14px;
+    margin-top:4px;
+}
+
+.nav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:#101419;
+    padding:10px;
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    border-bottom:1px solid #30362c;
+}
+
+.nav button{
+    white-space:nowrap;
+    background:#171c20;
+    color:#ddd;
+    border:1px solid #4b523d;
+    border-radius:20px;
+    padding:9px 14px;
+    font-size:13px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
+}
+
+.section{
+    margin-bottom:22px;
+    border:1px solid #3d4533;
+    border-radius:14px;
+    overflow:hidden;
+    background:#101317;
+}
+
+.section-title{
+    padding:15px;
+    font-size:20px;
+    font-weight:bold;
+    color:#d5d85d;
+    background:#151a1b;
+    border-bottom:1px solid #343b2e;
+}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:12px 15px;
+    border-bottom:1px solid #252a29;
+}
+
+.item:last-child{
+    border-bottom:none;
+}
+
+.name{
+    font-size:15px;
+    color:#eee;
+}
+
+.price{
+    color:#d9dd68;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.sets{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:15px;
+}
+
+.set{
+    border:1px solid #4b523d;
+    border-radius:14px;
+    padding:18px;
+    background:linear-gradient(145deg,#171c1d,#0d1013);
+}
+
+.set h3{
+    color:#d9dd68;
+    font-size:19px;
+    margin-bottom:6px;
+}
+
+.set-price{
+    font-size:21px;
+    font-weight:bold;
+    margin-bottom:12px;
+    color:#fff;
+}
+
+.set ul{
+    padding-left:20px;
+    color:#ccc;
+    line-height:1.8;
+}
+
+.contact{
+    text-align:center;
+    padding:30px 15px;
+    margin-top:10px;
+    border-top:1px solid #30362c;
+}
+
+.phone{
+    font-size:23px;
+    color:#d9dd68;
+    font-weight:bold;
+    margin:10px;
+}
+
+.instagram{
+    color:#ccc;
+    font-size:16px;
+}
+
+.footer{
+    text-align:center;
+    color:#777;
+    padding:20px;
+    font-size:12px;
+}
+
+@media(min-width:650px){
+    .sets{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .container{
+        padding:25px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-
-<div class="overlay"></div>
-
-<nav>
-
-<h2>QALYAN</h2>
-
-<ul>
-
-<li><a href="#qelyanalti">Qəlyanaltılar</a></li>
-
-<li><a href="#fastfood">Fast Food</a></li>
-
-<li><a href="#desert">Desertlər</a></li>
-
-<li><a href="#meze">Məzələr</a></li>
-
-<li><a href="#drink">İçkilər</a></li>
-
-<li><a href="#alcohol">Spirtli İçkilər</a></li>
-
-<li><a href="#hookah">Qəlyan</a></li>
-
-</ul>
-
-</nav>
-
-<div class="hero">
-
-<h1>QALYAN</h1>
-
-<p>Lounge & Cafe</p>
-
-<a href="#menu" class="btn">Menyuya Bax</a>
-
-</div>
-
+    <div class="logo">CORNER</div>
+    <div class="subtitle">LOUNGE</div>
+    <div style="margin-top:12px;color:#aaa;font-size:14px;">
+        MENU
+    </div>
 </header>
 
-<section id="menu">
-
-<h2 class="title">Menyu</h2>
-
-<section id="qelyanalti">
-
-<h2>Qəlyanaltılar</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="images/nuggets.jpg">
-
-<h3>Nuggets</h3>
-
-<p>5 AZN</p>
-
+<div class="nav">
+    <button onclick="go('cold')">Soyuq qəlyanaltılar</button>
+    <button onclick="go('main')">Əsas yemək</button>
+    <button onclick="go('hot')">İsti qəlyanaltılar</button>
+    <button onclick="go('fast')">Fast Food</button>
+    <button onclick="go('snacks')">Məzələr</button>
+    <button onclick="go('drinks')">İçkilər</button>
+    <button onclick="go('desserts')">Desertlər</button>
+    <button onclick="go('sets')">Setlər</button>
 </div>
 
-<div class="card">
+<div class="container">
 
-<img src="images/potato.jpg">
+<!-- SOYUQ QƏLYANALTILAR -->
+<section class="section" id="cold">
+    <div class="section-title">🥗 SOYUQ QƏLYANALTILAR</div>
 
-<h3>Kartof Fri</h3>
-
-<p>3 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/onion.jpg">
-
-<h3>Soğan Halqası</h3>
-
-<p>4 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/cheese.jpg">
-
-<h3>Pendir Çubuqları</h3>
-
-<p>5 AZN</p>
-
-</div>
-
-</div>
-
+    <div class="item"><span class="name">Çoban salatı</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Yunan salatı</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Turşu assorty</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Toyuq salatı</span><span class="price">7 AZN</span></div>
+    <div class="item"><span class="name">Tərəvəz buketi</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Ağ pendir</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Acika</span><span class="price">1 AZN</span></div>
+    <div class="item"><span class="name">Qatıq</span><span class="price">1 AZN</span></div>
+    <div class="item"><span class="name">Zeytun</span><span class="price">3 AZN</span></div>
 </section>
 
-<section id="fastfood">
+<!-- ƏSAS YEMƏK -->
+<section class="section" id="main">
+    <div class="section-title">🍽️ ƏSAS YEMƏK</div>
 
-<h2>Fast Food</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="images/hamburger.jpg">
-
-<h3>Hamburger</h3>
-
-<p>8 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/cheeseburger.jpg">
-
-<h3>Cheeseburger</h3>
-
-<p>9 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/hotdog.jpg">
-
-<h3>Hot Dog</h3>
-
-<p>5 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/doner.jpg">
-
-<h3>Dönər</h3>
-
-<p>7 AZN</p>
-
-</div>
-
-</div>
-
+    <div class="item"><span class="name">Sac toyuq</span><span class="price">18 AZN</span></div>
+    <div class="item"><span class="name">Sac can əti</span><span class="price">22 AZN</span></div>
+    <div class="item"><span class="name">Toyuq tabaka + kartof evsəyi</span><span class="price">15 AZN</span></div>
+    <div class="item"><span class="name">Mal əti + kartof evsəyi</span><span class="price">10 AZN</span></div>
+    <div class="item"><span class="name">Toyuq Langet (200 q) + qarnir</span><span class="price">10 AZN</span></div>
 </section>
 
-<section id="desert">
+<!-- İSTİ QƏLYANALTILAR -->
+<section class="section" id="hot">
+    <div class="section-title">🔥 İSTİ QƏLYANALTILAR</div>
 
-<h2>Desertlər</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="images/icecream.jpg">
-
-<h3>Dondurma</h3>
-
-<p>5 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/cheesecake.jpg">
-
-<h3>Cheesecake</h3>
-
-<p>6 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/fruit.jpg">
-
-<h3>Meyvə Assorti</h3>
-
-<p>10 AZN</p>
-
-</div>
-
-</div>
-
+    <div class="item"><span class="name">Kartof + sosiska</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Pomidor yumurta</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Sosiska + yumurta</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">İveriya + fri</span><span class="price">7 AZN</span></div>
+    <div class="item"><span class="name">Sardelka + fri</span><span class="price">7 AZN</span></div>
+    <div class="item"><span class="name">Gürcü xangəli</span><span class="price">7 AZN</span></div>
+    <div class="item"><span class="name">Yaprak xəngəli</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Sosiska</span><span class="price">2 AZN</span></div>
 </section>
 
-<section id="meze">
+<!-- FAST FOOD -->
+<section class="section" id="fast">
+    <div class="section-title">🍔 FAST FOOD</div>
 
-<h2>Məzələr</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="images/chips.jpg">
-
-<h3>Çips</h3>
-
-<p>3 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/peanut.jpg">
-
-<h3>Fıstıq</h3>
-
-<p>4 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/mix.jpg">
-
-<h3>Qarışıq Məzə</h3>
-
-<p>8 AZN</p>
-
-</div>
-
-</div>
-
+    <div class="item"><span class="name">Nugget + fri</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Qamburger</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Qamburger + fri</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Şaurma</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Şaurma + fri</span><span class="price">7 AZN</span></div>
+    <div class="item"><span class="name">Club Sendviç</span><span class="price">7 AZN</span></div>
+    <div class="item"><span class="name">Tost</span><span class="price">2 AZN</span></div>
+    <div class="item"><span class="name">Fri</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Dönər</span><span class="price">3 AZN</span></div>
 </section>
 
-<section id="drink">
+<!-- MƏZƏLƏR -->
+<section class="section" id="snacks">
+    <div class="section-title">🥜 MƏZƏLƏR</div>
 
-<h2>Soyuq İçkilər</h2>
+    <div class="item"><span class="name">Saçaq pendir (sadə)</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Saçaq pendir (qızartma)</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Patana</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Turşulu patana</span><span class="price">4.5 AZN</span></div>
+    <div class="item"><span class="name">Düşbərə</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Noxud</span><span class="price">2 AZN</span></div>
+    <div class="item"><span class="name">Noxud qızardılmış</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Püstə</span><span class="price">8 AZN</span></div>
+    <div class="item"><span class="name">Püstə qovrulmuş</span><span class="price">9 AZN</span></div>
 
-<div class="cards">
+    <div class="item"><span class="name">Fıstıq</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Cipsi</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Suxari</span><span class="price">2 AZN</span></div>
+    <div class="item"><span class="name">Boğaz</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Boğaz hisə verilmiş (ədəd)</span><span class="price">2 AZN</span></div>
+    <div class="item"><span class="name">Boğaz turşulu</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Smicka</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Smicka qovrulmuş</span><span class="price">3.5 AZN</span></div>
+    <div class="item"><span class="name">İveriya Sosiska (2 ədəd)</span><span class="price">4 AZN</span></div>
 
-<div class="card">
-
-<img src="images/coke.jpg">
-
-<h3>Coca Cola</h3>
-
-<p>3 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/fanta.jpg">
-
-<h3>Fanta</h3>
-
-<p>3 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/sprite.jpg">
-
-<h3>Sprite</h3>
-
-<p>3 AZN</p>
-
-</div>
-
-</div>
-
+    <div class="item"><span class="name">Sardelka Sosiska (2 ədəd)</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Örənki</span><span class="price">6 AZN</span></div>
+    <div class="item"><span class="name">Krevetka (karalevski)</span><span class="price">6 AZN</span></div>
+    <div class="item"><span class="name">Krevetka (çay)</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Qulştil</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Bildirçin</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Qobalak Cipsi</span><span class="price">5 AZN</span></div>
 </section>
 
-<section id="alcohol">
+<!-- SOYUQ İÇKİLƏR -->
+<section class="section" id="drinks">
+    <div class="section-title">🥤 SOYUQ İÇKİLƏR</div>
 
-<h2>Spirtli İçkilər</h2>
+    <div class="item"><span class="name">Cola 1 L</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Cola Banka</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Pepsi 1 L</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Fanta 1 L</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Sprite Banka</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Bizon (250 ml)</span><span class="price">2 AZN</span></div>
+    <div class="item"><span class="name">Hell (250 ml)</span><span class="price">2.5 AZN</span></div>
+    <div class="item"><span class="name">Redbull (balaca)</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Redbull (böyük)</span><span class="price">8 AZN</span></div>
+    <div class="item"><span class="name">Duşes</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Meyvə şirəsi</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Fuse Tea (500 ml)</span><span class="price">2 AZN</span></div>
 
-<div class="cards">
+    <div class="section-title" style="margin-top:10px;">☕ İSTİ İÇKİLƏR</div>
 
-<div class="card">
-
-<img src="images/beer.jpg">
-
-<h3>Pivə</h3>
-
-<p>5 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/whiskey.jpg">
-
-<h3>Viski</h3>
-
-<p>6 AZN</p>
-
-</div>
-
-<div class="card">
-
-<img src="images/vodka.jpg">
-
-<h3>Araq</h3>
-
-<p>5 AZN</p>
-
-</div>
-
-</div>
-
+    <div class="item"><span class="name">Çay</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Coffee</span><span class="price">2 AZN</span></div>
+    <div class="item"><span class="name">İsti şokolad</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Americano</span><span class="price">2 AZN</span></div>
+    <div class="item"><span class="name">Cappuccino</span><span class="price">3 AZN</span></div>
 </section>
 
-<section id="hookah">
+<!-- DESSERTS -->
+<section class="section" id="desserts">
+    <div class="section-title">🍰 DESERTLƏR</div>
 
-<h2>Qəlyan</h2>
+    <div class="item"><span class="name">Alpengold</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Roshen Skola</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Rulet</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Snickers</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Çiyələk mürəbbəsi</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Ağ gilas mürəbbəsi</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Portağal dilimi</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Naneli alma</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Meyvə assorti</span><span class="price">10 AZN</span></div>
+    <div class="item"><span class="name">Dantek</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Pop Kek</span><span class="price">5 AZN</span></div>
+    <div class="item"><span class="name">Türk paxlavası</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Truboçka</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Qoz</span><span class="price">4 AZN</span></div>
+</section>
 
-<div class="hookah">
+<!-- ALKOQOLLU -->
+<section class="section">
+    <div class="section-title">🍺 ALKOQOLLU İÇKİLƏR</div>
 
-<img src="images/hookah.png">
+    <div class="item"><span class="name">Pivə (Nəs)</span><span class="price">1.5 AZN</span></div>
+    <div class="item"><span class="name">Pivə (Nəs) fiçe</span><span class="price">2 AZN</span></div>
+    <div class="item"><span class="name">Pivə (Xırdalan)</span><span class="price">2.5 AZN</span></div>
+    <div class="item"><span class="name">Pivə (Xırdalan) fiçe</span><span class="price">3 AZN</span></div>
+    <div class="item"><span class="name">Pivə (Xırdalan No filter)</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Efes Zero</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Xırdalan Zero</span><span class="price">4 AZN</span></div>
+    <div class="item"><span class="name">Jameson</span><span class="price">7 AZN</span></div>
+    <div class="item"><span class="name">Jagermeister</span><span class="price">7 AZN</span></div>
+    <div class="item"><span class="name">Jack Daniels</span><span class="price">7 AZN</span></div>
+    <div class="item"><span class="name">Tekila Shot</span><span class="price">7 AZN</span></div>
+</section>
 
-<h3>Premium Qəlyan</h3>
+<!-- QƏLYAN -->
+<section class="section">
+    <div class="section-title">💨 QƏLYAN</div>
 
-<p>10 AZN</p>
+    <div class="item"><span class="name">Qəlyan çəkmə</span><span class="price">10 AZN</span></div>
+    <div class="item"><span class="name">Üreytrüt Qəlyan</span><span class="price">15 AZN</span></div>
+</section>
+
+<!-- SETLƏR -->
+<section class="section" id="sets">
+    <div class="section-title">🍺 SETLƏR</div>
+
+    <div class="sets">
+
+        <div class="set">
+            <h3>PİVƏ SET 1</h3>
+            <div class="set-price">20 AZN</div>
+            <ul>
+                <li>6 pivə + 6 məzə</li>
+                <li>Saçaq pendir sadə</li>
+                <li>Saçaq pendir qızartma</li>
+                <li>Suxari</li>
+                <li>Smicka</li>
+                <li>Noxud</li>
+                <li>Boğaz</li>
+            </ul>
+        </div>
+
+        <div class="set">
+            <h3>PİVƏ SET 2</h3>
+            <div class="set-price">30 AZN</div>
+            <ul>
+                <li>10 pivə + 10 məzə</li>
+                <li>Saçaq pendir sadə</li>
+                <li>Saçaq pendir qızartma</li>
+                <li>Cipsi</li>
+                <li>Suxari</li>
+                <li>Smicka</li>
+                <li>Qovrulmuş smicka</li>
+                <li>Patana</li>
+                <li>Noxud</li>
+                <li>Boğaz</li>
+                <li>Düşbərə</li>
+            </ul>
+        </div>
+
+        <div class="set">
+            <h3>PİVƏ SET 3</h3>
+            <div class="set-price">40 AZN</div>
+            <ul>
+                <li>14 pivə + 14 məzə</li>
+                <li>Saçaq pendir sadə</li>
+                <li>Saçaq pendir qızartma</li>
+                <li>Qovrulmuş smicka</li>
+                <li>Düşbərə</li>
+                <li>Krevetka (çay)</li>
+                <li>Cipsi</li>
+                <li>Suxari</li>
+                <li>Patana</li>
+                <li>Noxud</li>
+                <li>Boğaz</li>
+                <li>İveriya sosiska</li>
+                <li>Noxud qızardılmış</li>
+                <li>Boğaz hisə verilmiş</li>
+            </ul>
+        </div>
+
+        <div class="set">
+            <h3>ŞAURMA SET</h3>
+            <div class="set-price">15 AZN</div>
+            <ul>
+                <li>Şaurma — 2 ədəd</li>
+                <li>Kartof fri — 2 ədəd</li>
+                <li>Cola 1 L</li>
+            </ul>
+        </div>
+
+        <div class="set">
+            <h3>QƏLYAN SET 1</h3>
+            <div class="set-price">15 AZN</div>
+            <ul>
+                <li>Qəlyan</li>
+                <li>Çay</li>
+                <li>Alpengold</li>
+            </ul>
+        </div>
+
+        <div class="set">
+            <h3>QƏLYAN SET 2</h3>
+            <div class="set-price">15 AZN</div>
+            <ul>
+                <li>Qəlyan</li>
+                <li>Cola 1 L</li>
+                <li>Smicka aç</li>
+            </ul>
+        </div>
+
+        <div class="set">
+            <h3>QƏLYAN SET 3</h3>
+            <div class="set-price">20 AZN</div>
+            <ul>
+                <li>Çay</li>
+                <li>Mürəbbə (çiyələk və ya ağ gilas)</li>
+                <li>Qəlyan</li>
+                <li>2 ədəd</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<div class="contact">
+    <div style="font-size:18px;color:#d9dd68;">ÇATDIRILMA XİDMƏTİ</div>
+    <div class="phone">099 219 16 66</div>
+    <div class="instagram">@corner.lounge</div>
+</div>
 
 </div>
 
-</section>
+<div class="footer">
+    CORNER LOUNGE © 2026
+</div>
 
-</section>
+<script>
+function go(id){
+    const element=document.getElementById(id);
 
-<footer>
+    if(element){
+        const y=element.getBoundingClientRect().top + window.pageYOffset - 65;
 
-<p>© QALYAN Lounge & Cafe</p>
-
-</footer>
-
-<script src="script.js"></script>
+        window.scrollTo({
+            top:y,
+            behavior:"smooth"
+        });
+    }
+}
+</script>
 
 </body>
-
 </html>
